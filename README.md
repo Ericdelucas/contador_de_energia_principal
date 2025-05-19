@@ -1,2 +1,8 @@
-# contador_de_energia_principal
-O código gerencia a interface de energia no jogo Unity, permitindo adicionar energia, construir objetos e alternar painéis. Detecta cliques para coleta de energia e muda de cena ao zerar a energia.
+💡 Resumo do Código: EnergyUIManager
+O código implementa o controle da interface gráfica e gerenciamento de energia em um jogo Unity, utilizando as bibliotecas UnityEngine, TMPro, UnityEngine.UI, NUnit.Framework, e UnityEngine.SceneManagement para manipulação de objetos e interface. A classe EnergyUIManager, que herda de MonoBehaviour, possui variáveis para armazenar referências aos painéis de menu e energia, além de um botão para adicionar energia e uma lista de construções que podem ser ativadas.
+
+No método Awake(), o botão EnergyButton é vinculado à função AddEnergy(), garantindo que a energia aumente ao clicar. No método Start(), o painel de energia é inicialmente oculto, e o contador de objetos construídos (qualObj) é definido como -1 para indicar que nenhuma construção foi feita. O método ShowEnergyScreen() exibe o painel de energia, enquanto o método HideEnergyScreen() oculta o painel, alternando entre as telas.
+
+A função AddEnergy() aumenta a energia em 3 unidades quando o valor atual é menor que 1000, evitando ultrapassar o limite. O método Construir() verifica se há energia suficiente (300 unidades) para liberar uma construção; se sim, ativa o próximo objeto da lista e reduz a energia. A função Update() detecta cliques com o botão esquerdo do mouse e utiliza um Raycast para verificar se o jogador clicou em um objeto com a tag "EnergyGiver", acionando o método AddEnergy().
+
+Caso a energia caia abaixo de zero, o jogo carrega uma cena de índice 2, que pode representar uma tela de Game Over. A organização modular do código garante uma interface dinâmica e responsiva, permitindo o controle eficiente do sistema de energia e a ativação de construções de maneira intuitiva para o jogador.
